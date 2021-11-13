@@ -1,27 +1,18 @@
+import React from "react";
 import clsx from "clsx";
-import React, { useState } from "react";
 import { getNow } from "../../utils";
 import Button from "../common/Button";
 import Dropdown from "../common/Dropdown";
 import Input from "../common/Input";
 import styles from "./TaskForm.module.css";
 
-const TaskForm = ({ formAction = "Add", onSubmit, className }) => {
-  const [task, setTask] = useState({
-    title: "",
-    description: "",
-    dueDate: getNow(),
-    priority: "normal",
-  });
-
-  const onChangeInput = (event) => {
-    console.log(event.target.value);
-    setTask({
-      ...task,
-      [event.target.name]: event.target.value,
-    });
-  };
-
+const TaskForm = ({
+  formAction = "Add",
+  onSubmit,
+  className,
+  task,
+  onChangeInput,
+}) => {
   return (
     <div className={clsx(styles.TaskForm, className)}>
       <Input

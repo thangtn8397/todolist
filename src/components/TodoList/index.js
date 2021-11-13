@@ -18,9 +18,9 @@ const TodoList = ({ className }) => {
     >
       <Input placeholder="Search..." />
       <div>
-        {tasks.map((task) => (
-          <TodoListItem title={task.title} key={task.id} />
-        ))}
+        {tasks.map((task) => {
+          return <TodoListItem key={task.id} task={task} />;
+        })}
       </div>
       <BulkAction show={showBulkAction} />
     </FormContainer>
