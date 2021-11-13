@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Dropdown.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 const Dropdown = ({ label }) => {
   const [priority, setPriority] = useState(priorityArray[0]);
@@ -20,7 +21,7 @@ const Dropdown = ({ label }) => {
       <label className={styles.Label}>Priority</label>
       <div className={styles.Dropdown} onClick={() => setShowPopup(!showPopup)}>
         <div>{priority.label}</div>
-        <ArrowDropDownIcon />
+        {!showPopup ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
       </div>
       <ul className={popupStyle}>
         {priorityArray.map((p) => (
