@@ -1,0 +1,44 @@
+.DropdownContainer {
+  padding: 10px;
+  width: 100%;
+  min-width: 200px;
+}
+
+.Dropdown {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.Popup {
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+}
+
+.Popup li {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Popup li:hover {
+  background-color: #ccc;
+}
+
+.Hidden {
+  display: none;
+}
+
+.Selected {
+  background-color: #ccc;
+}
