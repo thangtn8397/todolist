@@ -1,0 +1,17 @@
+.BulkAction {
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-bottom: none;
+  padding: 10px;
+}
+.Actions {
+  display: flex;
+}
+
+.BtnDone {
+  background-color: #2196f3;
+  margin-right: 10px;
+}
