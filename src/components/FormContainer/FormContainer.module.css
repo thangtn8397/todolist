@@ -1,0 +1,9 @@
+.FormContainer {
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.Title {
+  text-align: center;
+  font-size: 24px;
+}
