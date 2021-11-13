@@ -1,0 +1,21 @@
+.BtnContainer {
+  padding: 10px;
+}
+
+.Button {
+  display: block;
+  border: none;
+  padding: 8px;
+  color: #fff;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Success {
+  background-color: #008000;
+}
+
+.Danger {
+  background-color: #ff0000;
+}
