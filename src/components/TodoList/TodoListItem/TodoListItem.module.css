@@ -1,0 +1,35 @@
+.TodoListItem {
+  border: 1px solid #000;
+  margin-bottom: 20px;
+}
+
+.Flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header {
+  border-bottom: 1px solid #000;
+  padding: 10px;
+}
+
+.Detail {
+  padding: 10px;
+}
+
+.Checkbox {
+  width: auto;
+  margin-right: 10px;
+}
+
+.Checkbox > input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.BtnDetail {
+  background-color: #00bcd4;
+  margin-right: 10px;
+}

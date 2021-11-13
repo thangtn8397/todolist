@@ -1,5 +1,4 @@
 .DropdownContainer {
-  padding: 10px;
   width: 100%;
   min-width: 200px;
 }
@@ -32,7 +31,7 @@
 }
 
 .Popup li:hover {
-  background-color: #ccc;
+  background-color: #d5dbe3;
 }
 
 .Hidden {

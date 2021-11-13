@@ -1,4 +1,14 @@
 .App {
   border: 1px solid #000;
   display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.AddNewTaskForm {
+  flex: 2;
+}
+
+.TodoList {
+  flex: 3;
 }
