@@ -5,8 +5,11 @@ import TodoListItem from "./TodoListItem";
 import clsx from "clsx";
 import styles from "./TodoList.module.css";
 import BulkAction from "./BulkAction";
+import { useAppState } from "../../state/AppStateContext";
 
 const TodoList = ({ className }) => {
+  const { tasks } = useAppState();
+
   const [showBulkAction, setShowBulkAction] = useState(false);
   return (
     <FormContainer
@@ -15,10 +18,9 @@ const TodoList = ({ className }) => {
     >
       <Input placeholder="Search..." />
       <div>
-        <TodoListItem text="Do homework" />
-        <TodoListItem text="Play game hihi" />
-        <TodoListItem text="Do housework" />
-        <TodoListItem text="Do housework" />
+        {tasks.map((task) => (
+          <TodoListItem title={task.title} key={task.id} />
+        ))}
       </div>
       <BulkAction show={showBulkAction} />
     </FormContainer>

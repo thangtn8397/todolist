@@ -4,7 +4,7 @@ import { Input, Button } from "../../common";
 import TaskForm from "../../TaskForm";
 import styles from "./TodoListItem.module.css";
 
-const TodoListItem = ({ text, onOpenDetail, onSelectCheckbox }) => {
+const TodoListItem = ({ title, onOpenDetail, onSelectCheckbox }) => {
   const [showDetail, setShowDetail] = useState(false);
   return (
     <div className={clsx(styles.TodoListItem)} onClick={onOpenDetail}>
@@ -15,14 +15,13 @@ const TodoListItem = ({ text, onOpenDetail, onSelectCheckbox }) => {
             className={styles.Checkbox}
             onChange={onSelectCheckbox}
           />
-          <p>{text}</p>
+          <p>{title}</p>
         </div>
         <div className={styles.Flex}>
           <Button
             value="Detail"
             className={styles.BtnDetail}
             clicked={() => {
-              console.log(showDetail);
               setShowDetail(!showDetail);
             }}
           />
