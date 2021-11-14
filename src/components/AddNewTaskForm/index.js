@@ -12,7 +12,7 @@ const defaultTask = {
   title: "",
   description: "",
   dueDate: getNow(),
-  priority: "normal",
+  priority: "Normal",
 };
 
 const AddNewTaskForm = ({ className }) => {
@@ -23,6 +23,13 @@ const AddNewTaskForm = ({ className }) => {
     setTask({
       ...task,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const onChangePriority = (priority) => {
+    setTask({
+      ...task,
+      priority: priority,
     });
   };
 
@@ -45,6 +52,7 @@ const AddNewTaskForm = ({ className }) => {
           addNewTask(task);
         }}
         onChangeInput={onChangeInput}
+        onChangePriority={onChangePriority}
         task={task}
       />
     </FormContainer>

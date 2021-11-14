@@ -4,12 +4,19 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import clsx from "clsx";
 
-const Dropdown = ({ label = "Priority", priorityArray, className }) => {
-  const [priority, setPriority] = useState(priorityArray[0]);
+const Dropdown = ({
+  label = "Priority",
+  array,
+  className,
+  onChange,
+  value,
+}) => {
+  const [item, setItem] = useState(value ? value : array[0]);
   const [showPopup, setShowPopup] = useState(false);
 
-  const onClickItem = (priority) => {
-    setPriority(priority);
+  const onClickItem = (item) => {
+    setItem(item);
+    onChange(item);
     setShowPopup(false);
   };
 
@@ -17,7 +24,7 @@ const Dropdown = ({ label = "Priority", priorityArray, className }) => {
     <div className={clsx(styles.DropdownContainer, className)}>
       <label className={styles.Label}>{label}</label>
       <div className={styles.Dropdown} onClick={() => setShowPopup(!showPopup)}>
-        <input readOnly value={priority.label} />
+        <input readOnly value={item} />
         {!showPopup ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
       </div>
       <div
@@ -26,13 +33,13 @@ const Dropdown = ({ label = "Priority", priorityArray, className }) => {
         }
       >
         <ul className={styles.Popup}>
-          {priorityArray?.map((p) => (
+          {array?.map((i) => (
             <li
-              onClick={() => onClickItem(p)}
-              key={p.value}
-              className={p.value === priority.value ? styles.Selected : ""}
+              onClick={() => onClickItem(i)}
+              key={i}
+              className={i === item ? styles.Selected : ""}
             >
-              {p.label}
+              {i}
             </li>
           ))}
         </ul>

@@ -11,6 +11,7 @@ const TaskForm = ({
   className,
   task,
   onChangeInput,
+  onChangePriority,
 }) => {
   return (
     <div className={clsx(styles.TaskForm, className)}>
@@ -39,10 +40,9 @@ const TaskForm = ({
         />
         <Dropdown
           label="Priority"
-          name="priority"
-          onChange={onChangeInput}
+          onChange={onChangePriority}
           value={task.priority}
-          priorityArray={priorityArray}
+          array={priorityArray}
         />
       </div>
       <Button
@@ -57,8 +57,4 @@ const TaskForm = ({
 };
 
 export default TaskForm;
-const priorityArray = [
-  { value: "normal", label: "Normal" },
-  { value: "high", label: "High" },
-  { value: "low", label: "Low" },
-];
+const priorityArray = ["Normal", "High", "Low"];

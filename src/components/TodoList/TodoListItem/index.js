@@ -18,6 +18,13 @@ const TodoListItem = ({ onOpenDetail, onSelectTask, task }) => {
     });
   };
 
+  const onChangePriority = (priority) => {
+    setTaskState({
+      ...task,
+      priority: priority,
+    });
+  };
+
   const onUpdateTask = () => {
     dispatch(updateTask(taskState));
   };
@@ -33,7 +40,7 @@ const TodoListItem = ({ onOpenDetail, onSelectTask, task }) => {
   return (
     <div className={clsx(styles.TodoListItem)} onClick={onOpenDetail}>
       <div className={clsx(styles.Header, styles.Flex)}>
-        <div className={styles.Flex}>
+        <div className={styles.FlexStart}>
           <Input
             type="checkbox"
             className={styles.Checkbox}
@@ -57,6 +64,7 @@ const TodoListItem = ({ onOpenDetail, onSelectTask, task }) => {
           formAction="Update"
           task={taskState}
           onChangeInput={onChangeInput}
+          onChangePriority={onChangePriority}
           onSubmit={onUpdateTask}
         />
       </div>
