@@ -6,7 +6,7 @@ import { Input, Button } from "../../common";
 import TaskForm from "../../TaskForm";
 import styles from "./TodoListItem.module.css";
 
-const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
+const TodoListItem = ({ onOpenDetail, onSelectTask, task }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [taskState, setTaskState] = useState(task);
   const { dispatch } = useAppState();
@@ -37,7 +37,7 @@ const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
           <Input
             type="checkbox"
             className={styles.Checkbox}
-            onChange={onSelectCheckbox}
+            onChange={onSelectTask}
           />
           <p>{task.title}</p>
         </div>

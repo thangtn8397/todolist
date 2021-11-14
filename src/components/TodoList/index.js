@@ -9,8 +9,20 @@ import SearchBar from "../SearchBar";
 
 const TodoList = ({ className }) => {
   const { tasks, filter } = useAppState();
+  const [selectedTaskIds, setSelectedTaskIds] = useState([]);
 
-  const [showBulkAction, setShowBulkAction] = useState(false);
+  const onSelectedTask = (taskId) => {
+    const index = selectedTaskIds.indexOf(taskId);
+    if (index > 0) {
+      setSelectedTaskIds(
+        ...selectedTaskIds.slice(0, index),
+        ...selectedTaskIds.slice(index + 1)
+      );
+    } else {
+      setSelectedTaskIds([...selectedTaskIds, taskId]);
+    }
+  };
+
   return (
     <FormContainer
       title="To Do List"
@@ -21,10 +33,19 @@ const TodoList = ({ className }) => {
         {tasks
           ?.filter((task) => task.title.toLowerCase().includes(filter))
           .map((task) => {
-            return <TodoListItem key={task.id} task={task} />;
+            return (
+              <TodoListItem
+                key={task.id}
+                task={task}
+                onSelectTask={() => onSelectedTask(task.id)}
+              />
+            );
           })}
       </div>
-      <BulkAction show={showBulkAction} />
+      <BulkAction
+        show={selectedTaskIds?.length > 0}
+        selectedTasks={selectedTaskIds}
+      />
     </FormContainer>
   );
 };

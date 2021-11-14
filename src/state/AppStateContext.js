@@ -5,7 +5,7 @@ const appData = {
   tasks: [
     {
       id: "1",
-      title: "Do homework",
+      title: "Play game",
       description: "Do homeworkDo homeworkDo homeworkDo homework",
       dueDate: "2021-11-15",
       priority: "normal",
@@ -19,7 +19,7 @@ const appData = {
     },
     {
       id: "3",
-      title: "Do homework",
+      title: "Go to the bed",
       description: "Do homeworkDo homeworkDo homeworkDo homework",
       dueDate: "2021-11-15",
       priority: "normal",
