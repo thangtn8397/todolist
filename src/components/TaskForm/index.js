@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { getNow } from "../../utils";
-import { Button, Select, Input } from "../common";
+import { Button, Input } from "../common";
 import Dropdown from "../common/Dropdown";
 import styles from "./TaskForm.module.css";
 
@@ -44,19 +44,13 @@ const TaskForm = ({
           value={task.priority}
           priorityArray={priorityArray}
         />
-
-        {/* <Select
-          label="Priority"
-          options={priorityArray}
-          name="priority"
-          onChange={onChangeInput}
-        /> */}
       </div>
       <Button
         btnType="success"
         value={formAction}
         className={styles.BtnAdd}
         clicked={() => onSubmit(task)}
+        disabled={!task.title.length > 0}
       />
     </div>
   );

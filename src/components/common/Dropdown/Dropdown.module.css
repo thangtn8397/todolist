@@ -17,6 +17,8 @@
   border: none;
   outline: none;
   box-sizing: border-box;
+  cursor: pointer;
+  width: 90%;
 }
 
 .Label {

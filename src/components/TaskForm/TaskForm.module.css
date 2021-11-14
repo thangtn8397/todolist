@@ -1,8 +1,19 @@
 .Flex {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.Flex > div {
+  width: 45%;
+}
+
+.TaskForm > div {
+  margin: 0 auto 20px;
+  max-width: 400px;
 }
 
 .BtnAdd {
   width: 100%;
+  margin-top: 50px;
 }

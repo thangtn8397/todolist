@@ -17,12 +17,7 @@ const Dropdown = ({ label = "Priority", priorityArray, className }) => {
     <div className={clsx(styles.DropdownContainer, className)}>
       <label className={styles.Label}>{label}</label>
       <div className={styles.Dropdown} onClick={() => setShowPopup(!showPopup)}>
-        <input
-          value={priority.label}
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-        />
+        <input readOnly value={priority.label} />
         {!showPopup ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
       </div>
       <div

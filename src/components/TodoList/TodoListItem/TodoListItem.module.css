@@ -13,6 +13,12 @@
   padding: 10px;
 }
 
+.Title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .Detail {
   padding: 10px;
   border-top: 1px solid #000;

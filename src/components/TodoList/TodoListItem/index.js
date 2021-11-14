@@ -39,7 +39,7 @@ const TodoListItem = ({ onOpenDetail, onSelectTask, task }) => {
             className={styles.Checkbox}
             onChange={onSelectTask}
           />
-          <p>{task.title}</p>
+          <p className={styles.Title}>{task.title}</p>
         </div>
         <div className={styles.Flex}>
           <Button

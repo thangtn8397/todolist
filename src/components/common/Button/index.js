@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-const Button = ({ btnType, clicked, value, className }) => {
+const Button = ({ btnType, clicked, value, className, ...otherProps }) => {
   let btnStyle = [styles.Button, className];
   let style = styles.Button;
   if (btnType === "success") {
@@ -13,7 +13,7 @@ const Button = ({ btnType, clicked, value, className }) => {
 
   return (
     <div className={styles.BtnContainer}>
-      <button onClick={clicked} className={style}>
+      <button onClick={clicked} className={style} {...otherProps}>
         {value}
       </button>
     </div>
