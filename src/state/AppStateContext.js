@@ -32,15 +32,16 @@ const appData = {
       priority: "normal",
     },
   ],
+  filter: "",
 };
 
 const AppStateContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appStateReducer, appData);
-  const { tasks } = state;
+  const { tasks, filter } = state;
   return (
-    <AppStateContext.Provider value={{ tasks, dispatch }}>
+    <AppStateContext.Provider value={{ tasks, dispatch, filter }}>
       {children}
     </AppStateContext.Provider>
   );

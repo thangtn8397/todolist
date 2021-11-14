@@ -9,7 +9,7 @@ import styles from "./TodoListItem.module.css";
 const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [taskState, setTaskState] = useState(task);
-  const { tasks, dispatch } = useAppState();
+  const { dispatch } = useAppState();
 
   const onChangeInput = (e) => {
     setTaskState({
@@ -52,15 +52,13 @@ const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
           <Button btnType="danger" value="Remove" clicked={onRemoveTask} />
         </div>
       </div>
-      <div className={styles.Detail}>
-        {showDetail && (
-          <TaskForm
-            formAction="Update"
-            task={taskState}
-            onChangeInput={onChangeInput}
-            onSubmit={onUpdateTask}
-          />
-        )}
+      <div className={showDetail ? styles.Detail : styles.Hidden}>
+        <TaskForm
+          formAction="Update"
+          task={taskState}
+          onChangeInput={onChangeInput}
+          onSubmit={onUpdateTask}
+        />
       </div>
     </div>
   );

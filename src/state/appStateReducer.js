@@ -28,6 +28,13 @@ export const appStateReducer = (state, action) => {
       };
     }
 
+    case "SEARCH_TASK": {
+      return {
+        ...state,
+        filter: action.payload,
+      };
+    }
+
     default:
       return state;
   }

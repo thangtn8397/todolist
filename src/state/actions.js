@@ -12,3 +12,8 @@ export const removeTask = (idTask) => ({
   type: "REMOVE_TASK",
   payload: idTask,
 });
+
+export const searchTask = (title) => ({
+  type: "SEARCH_TASK",
+  payload: title,
+});

@@ -1,6 +1,6 @@
 .TodoListItem {
-  border: 1px solid #000;
   margin-bottom: 20px;
+  border: 1px solid #000;
 }
 
 .Flex {
@@ -10,12 +10,12 @@
 }
 
 .Header {
-  border-bottom: 1px solid #000;
   padding: 10px;
 }
 
 .Detail {
   padding: 10px;
+  border-top: 1px solid #000;
 }
 
 .Checkbox {
@@ -32,4 +32,8 @@
 .BtnDetail {
   background-color: #00bcd4;
   margin-right: 10px;
+}
+
+.Hidden {
+  display: none;
 }

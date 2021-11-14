@@ -1,3 +1,7 @@
 .FormContainer {
   position: relative;
 }
+
+.SearchBar {
+  margin-bottom: 20px;
+}
