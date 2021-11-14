@@ -1,9 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import { getNow } from "../../utils";
-import Button from "../common/Button";
+import { Button, Select, Input } from "../common";
 import Dropdown from "../common/Dropdown";
-import Input from "../common/Input";
 import styles from "./TaskForm.module.css";
 
 const TaskForm = ({
@@ -43,7 +42,15 @@ const TaskForm = ({
           name="priority"
           onChange={onChangeInput}
           value={task.priority}
+          priorityArray={priorityArray}
         />
+
+        {/* <Select
+          label="Priority"
+          options={priorityArray}
+          name="priority"
+          onChange={onChangeInput}
+        /> */}
       </div>
       <Button
         btnType="success"
@@ -56,3 +63,8 @@ const TaskForm = ({
 };
 
 export default TaskForm;
+const priorityArray = [
+  { value: "normal", label: "Normal" },
+  { value: "high", label: "High" },
+  { value: "low", label: "Low" },
+];

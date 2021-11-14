@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import styles from "./Dropdown.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import clsx from "clsx";
 
-const Dropdown = ({ label }) => {
+const Dropdown = ({ label = "Priority", priorityArray, className }) => {
   const [priority, setPriority] = useState(priorityArray[0]);
   const [showPopup, setShowPopup] = useState(false);
-  let popupStyleArray = !showPopup
-    ? [styles.Popup, styles.Hidden]
-    : [styles.Popup];
-  let popupStyle = popupStyleArray.join(" ");
 
   const onClickItem = (priority) => {
     setPriority(priority);
@@ -17,31 +14,36 @@ const Dropdown = ({ label }) => {
   };
 
   return (
-    <div className={styles.DropdownContainer}>
-      <label className={styles.Label}>Priority</label>
+    <div className={clsx(styles.DropdownContainer, className)}>
+      <label className={styles.Label}>{label}</label>
       <div className={styles.Dropdown} onClick={() => setShowPopup(!showPopup)}>
-        <div>{priority.label}</div>
+        <input
+          value={priority.label}
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
         {!showPopup ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
       </div>
-      <ul className={popupStyle}>
-        {priorityArray.map((p) => (
-          <li
-            onClick={() => onClickItem(p)}
-            key={p.value}
-            className={p.value === priority.value ? styles.Selected : ""}
-          >
-            {p.label}
-          </li>
-        ))}
-      </ul>
+      <div
+        className={
+          !showPopup ? clsx(styles.PopupContainer, styles.Hidden) : styles.Popup
+        }
+      >
+        <ul className={styles.Popup}>
+          {priorityArray?.map((p) => (
+            <li
+              onClick={() => onClickItem(p)}
+              key={p.value}
+              className={p.value === priority.value ? styles.Selected : ""}
+            >
+              {p.label}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default Dropdown;
-
-const priorityArray = [
-  { value: "normal", label: "Normal" },
-  { value: "high", label: "High" },
-  { value: "low", label: "Low" },
-];

@@ -1,6 +1,6 @@
 .DropdownContainer {
   width: 100%;
-  min-width: 200px;
+  position: relative;
 }
 
 .Dropdown {
@@ -9,6 +9,14 @@
   justify-content: space-between;
   padding: 5px;
   cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.Dropdown > input {
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .Label {
@@ -18,10 +26,22 @@
   text-transform: capitalize;
 }
 
+.PopupContainer {
+  border: 1px solid #ccc;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .Popup {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
   border: 1px solid #ccc;
   margin: 0;
   padding: 0;
+  z-index: 100;
+  background: #fff;
 }
 
 .Popup li {

@@ -1,0 +1,24 @@
+/* .SelectContainer {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #ccc;
+} */
+
+.Select {
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  outline: none;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.Label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}

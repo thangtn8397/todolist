@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
-import { updateTask } from "../../../state/actions";
+import { removeTask, updateTask } from "../../../state/actions";
 import { useAppState } from "../../../state/AppStateContext";
 import { Input, Button } from "../../common";
 import TaskForm from "../../TaskForm";
@@ -9,7 +9,7 @@ import styles from "./TodoListItem.module.css";
 const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [taskState, setTaskState] = useState(task);
-  const { dispatch } = useAppState();
+  const { tasks, dispatch } = useAppState();
 
   const onChangeInput = (e) => {
     setTaskState({
@@ -20,6 +20,10 @@ const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
 
   const onUpdateTask = () => {
     dispatch(updateTask(taskState));
+  };
+
+  const onRemoveTask = () => {
+    dispatch(removeTask(taskState.id));
   };
 
   useEffect(() => {
@@ -45,7 +49,7 @@ const TodoListItem = ({ onOpenDetail, onSelectCheckbox, task }) => {
               setShowDetail(!showDetail);
             }}
           />
-          <Button btnType="danger" value="Remove" />
+          <Button btnType="danger" value="Remove" clicked={onRemoveTask} />
         </div>
       </div>
       <div className={styles.Detail}>
